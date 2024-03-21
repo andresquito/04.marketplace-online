@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Sidebar from "./components/shared/Sidebar";
 import { FaUser, FaBars, FaTimes, FaSearch, FaAngleDown } from "react-icons/fa";
+import Primero from '../public/plato.png'
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -58,21 +59,29 @@ function App() {
             </nav>
           </header>
           {/* Title content */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mb-12">
             <h2 className="text-gray-300 text-xl">Choose Dishes</h2>
             <button className="flex items-center gap-4 text-gray-300 bg-[#1F1D2B] py-2 px-4 rounded-lg">
               <FaAngleDown /> Dine in
             </button>
           </div>
           {/* Content */}
-          <div className="p-8 grid grid-cols-2">
+          <div className=" mt-14 grid grid-cols-2 ">
             {/* Card */}
-            <div>
-              <img src="plato.png" alt="" />
+            <div className="bg-[#1F1D2B] p-4 rounded-xl flex flex-col items-center gap-2 text-center text-gray-300 mr-2" >
+              <img src= {Primero} alt="" className="w-80 h-40 object-cover -mt-20 shadow-2xl rounded-full  " />
+              <p>Speacy seasoned seafood nodles</p>
+              <span className="text-gray-400" >$2.29</span>
+              <p className="text-gray-600" >20 Bowls available</p>
             </div>
-            <div>
-              <img src="plato.png" alt="" />
+
+            <div className="bg-[#1F1D2B] p-4 rounded-xl flex flex-col items-center gap-2 text-center text-gray-300 ml-2" >
+              <img src= {Primero} alt="" className="w-80 h-40 object-cover -mt-20 shadow-2xl rounded-full  " />
+              <p>Speacy seasoned seafood nodles</p>
+              <span className="text-gray-400" >$2.29</span>
+              <p className="text-gray-600" >20 Bowls available</p>
             </div>
+
           </div>
 
 
