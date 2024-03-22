@@ -202,7 +202,7 @@ function toggleOrder() {
               </div>
 
               {/* Products **************************************************************/}
-              <div className="h-[370px] md:h-[700px] lg:h-[470px] overflow-y-scroll">
+              <div className="h-[340px] md:h-[600px] lg:h-[470px] overflow-y-scroll">
                 {/* Product 1*/}
                 <div className="bg-[#262837] p-4 rounded-xl mb-4">
                   <div className="grid grid-cols-6  items-center">
