@@ -13,17 +13,19 @@ import Primero from "../public/plato.png";
 import chiken from "../public/chiken.png";
 
 function App() {
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(!false);
   const [showOrder, setShowOrder] = useState(false);
 
   function toggleMenu() {
-    setShowMenu(!showMenu);
-    setShowOrder(false);
-  }
-  function toggleOrder() {
-    setShowOrder(!showOrder);
-    setShowMenu(false);
-  }
+    setShowMenu(!showMenu) 
+}
+
+function toggleOrder() {
+  setShowOrder(!showOrder)
+  setShowMenu(!showOrder) 
+  setShowMenu(!false)   
+}
+
   return (
     <div className="bg-[#262837]  w-full  min-h-screen">
       <Sidebar showMenu={!showMenu} />
@@ -34,13 +36,13 @@ function App() {
         <button className="p-2"><FaPlus /></button>*/}
         <button onClick={toggleOrder} className="p-2"><FaChartPie /></button> 
         <button onClick={toggleMenu} className="text-orange-600 p-2 ml-auto">
-          {showMenu ? <FaTimes /> : <FaBars />}
+          {showMenu ?  <FaBars />:<FaTimes /> }
         </button>
       </nav>
-      {/* home */}
-      <main className="lg:pl-32 grid grid-cols-1 lg-grid-cols-8 p-4 pb-20">
+      {/* home ************************************************/}
+      <main className="lg:pl-32 lg:pr-80 grid grid-cols-1 lg-grid-cols-8 pb-20 ">
         {/* Products */}
-        <div className="lg:col-span-6 md:pd-8">
+        <div className="lg:col-span-6 md:p-8 p-4 lg:pr-28 ">
           {/* Header */}
           <header className="">
             {/* Title and search */}
@@ -53,7 +55,7 @@ function App() {
                 <FaSearch className="absolute left-3 top-1/2 -traslate-y-1/2 text-gray-300" />
                 <input
                   type="text"
-                  className="bg-[#1F1D2B] w-full py-2 pl-10 pr-4 rounded-lg text-gray-300 outline-none"
+                  className="bg-[#1F1D2B] w-full md:w-[700px] py-2 pl-10 pr-4 rounded-lg text-gray-300 outline-none "
                   placeholder="Search"
                 />
               </div>
@@ -82,7 +84,7 @@ function App() {
             </button>
           </div>
           {/* Content */}
-          <div className=" p-4  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 ">
+          <div className=" p-4  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20 ">
             {/* Card */}
             <div className="bg-[#1F1D2B] p-4 rounded-xl flex flex-col items-center gap-2 text-center text-gray-300 mr-2 ">
               <img
@@ -173,11 +175,11 @@ function App() {
             </div>
           </div>
         </div>
-        {/* Carrito de la compra */}
-        <div className={`lg:col-span-2 fixed lg:static top-0 bg-[#1F1D2B] w-full h-full transition-all ${showOrder ? "right-0" : "-right-full"} `}>
-          {/* Orders */}
-          <div className="relative pt-16 text-gray-300 p-8 h-full">
-            <FaTimes className="absolute left-4 top-4 p-3 box-content text-gray-300 bg-[#262837] rounded-full text-xl" onClick={toggleOrder} />
+        {/* Carrito de la compra ********************************************************/}
+        <div className={`lg:col-span-2 fixed   top-0 bg-[#1F1D2B] w-full lg:w-96 md:w-80 lg:right-0 h-full transition-all ${showOrder ? "right-0" : "-right-full"} `}>
+          {/* Orders *************************************************************/}
+          <div className="relative pt-16 lg:pt-8 text-gray-300 p-8 h-full">
+            <FaTimes className="lg:hidden absolute left-4 top-4 p-3 box-content text-gray-300 bg-[#262837] rounded-full text-xl" onClick={toggleOrder} />
             <h1 className="text-2xl my-4 ">Orders</h1>
             {/* Pills */}
             <div className="flex items-center gap-4 flex-wrap">
@@ -198,8 +200,9 @@ function App() {
                 <h5>Qty</h5>
                 <h5>Price</h5>
               </div>
-              {/* Products */}
-              <div className="h-[730px] overflow-y-scroll ">
+
+              {/* Products **************************************************************/}
+              <div className="h-[370px] md:h-[700px] lg:h-[470px] overflow-y-scroll">
                 {/* Product 1*/}
                 <div className="bg-[#262837] p-4 rounded-xl mb-4">
                   <div className="grid grid-cols-6  items-center">
@@ -498,18 +501,18 @@ function App() {
               </div>
             </div>
 
-            {/* Submit payment */}
-            <div className="absolute bottom-0 left-0 p-4 w-full ">
-              <div className="flex items-center justify-between mb-4">
+            {/* Submit payment *********************************************************/}
+            <div className="absolute bottom-0 left-0 p-2 w-full ">
+              <div className="flex items-center justify-between mb-1 px-6">
                 <span className="text-gray-400">Discount</span>
                 <span>$0</span>
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between px-6">
                 <span className="text-gray-400">Subtotal</span>
                 <span>$0</span>
               </div>
               <div>
-                <button className="bg-[#ec7c6a] w-full py-4 mt-6 rounded-xl font-bold text-[20px]">
+                <button className="bg-[#ec7c6a] w-full py-3  mt-3 rounded-xl font-bold text-[20px]">
                   Send
                 </button>
               </div>
